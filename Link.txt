@@ -1,0 +1,27 @@
+https://hackmd.io/@shangyuan/js_s_1
+https://hackmd.io/@shangyuan/js_s_2
+
+</script>
+
+    <h3>九九乘法表</h3>
+    <script class="loop9">
+    document.write("<table>");
+    for(var aa = 1;aa<=9;aa++){
+        document.write("<tr>");
+            for(var bb = 1;bb<=9;bb++){
+            document.write("<td>",bb +"*"+ aa +" = "+ bb*aa ,"</td>");
+            } 
+            document.write("</tr>");
+            }
+    document.write("</table>");
+    </script>
+    
+    <style>
+        .loop9,table,tr,td{
+            border: 1px solid green;
+            border-collapse: collapse;
+        }
+
+
+
+    </style>

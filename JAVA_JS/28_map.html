@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const array1 = [1, 4, 9, 16, { c: 'tibame' }];
+        array1.map(x => console.log(x));
+        array1.map(function (x) {
+            console.log(x);
+        });
+
+        array1.map(function (x, index, arr) {
+            console.log(x, index, arr);
+        });
+
+
+        const map1 = array1.map(x => x);
+        console.log(map1);
+        console.log(map1 === array1);//false
+        map1[0] = 11111;
+        console.log(map1[0], array1[0]);//11111 1
+        console.log(map1[0] === array1[0]);//false
+
+        map1[4].c ="TIBAME";
+        console.log(map1[4], array1[4]);//{c: "TIBAME"} {c: "TIBAME"}
+        console.log(map1[4] === array1[4]);//true
+
+
+
+        //////////forEach不能像map一樣
+
+        const map2 = array1.forEach(y => y * 2);
+        console.log(map2);//undefined
+
+    </script>
+</body>
+
+</html>

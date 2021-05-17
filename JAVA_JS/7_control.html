@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>流程控制</title>
+  <style>
+    h3 {
+      color: rgb(57, 59, 146);
+    }
+
+    table,
+    tr,
+    td {
+      border: 1px solid rgb(131, 125, 125);
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+
+
+<body>
+  <h3>if~else句型 1</h3>
+  <script>
+    var avg = 60;
+    if (avg >= 60) document.write("通過", "<br>");
+    else document.write("QQ", "<br>");
+//通過
+  </script>
+
+  <h3>if~else句型 2</h3>
+  <script>
+    var avg = 36;
+    if (avg >= 60) {
+      document.write("通過", "<br>");
+      document.write("合格證書列印中....", "<br>");
+    } else {
+      document.write("再讀一學期", "<br>");
+    }
+      //再讀一學期
+  </script>
+
+  <hr />
+
+  <h3>if~else其他</h3>
+  <script>
+    var name = "cat";
+    if (name == "cat") {
+      document.write("貓<br>");
+    } else if (name == "dog") {
+      document.write("狗<br>");
+    } else {
+      document.write("不明生物<br>");
+    }
+    //貓
+
+    //注意!!!!!A
+    var year = 2020;
+    if (year > 1919) {
+      document.write(">1919<br>");
+    } else if (year > 2009) {
+      document.write(">2009<br>");
+    } else if (year >= 2020) {
+      document.write(">=2020<br>");
+    } else {
+      document.write("when?<br>");
+    }
+    //注意!!!!!B
+    var year2 = 2020;
+    if (year2 >= 2020) {
+      document.write(">=2020<br>");
+    } else if (year2 > 2009) {
+      document.write(">2009<br>");
+    } else if (year2 > 1919) {
+      document.write(">1919<br>");
+    } else {
+      document.write("when?<br>");
+    }
+
+
+    
+
+
+    var text = "文字";
+    if (text) {
+      document.write(text + "<br>");
+    } else {
+      document.write("沒東西" + "<br>");
+    }
+
+    var text1;
+    if (text1) {
+      document.write(text1 + "<br>");
+    } else {
+      document.write(text1 + "沒東西" + "<br>");
+    }
+
+    var text2;
+    if (!text2) {
+      document.write(text2 + "真的沒東西" + "<br>");
+    }
+
+
+  </script>
+  <hr />
+
+  <h3>switch</h3>
+  <script>
+var game = 1;
+switch (game) {
+  case 1:
+    document.write(game, "集合啦 ! 動物森友會");
+    break;
+  case 2:
+    document.write(game, "薩爾達傳說");
+    break;
+  default:
+    document.write(game, "沒有遊戲可以玩");
+}
+
+  </script>
+  
+</body>
+
+</html>

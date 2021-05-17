@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- <div class="rrr">1</div>
+<div class="rrr">2</div>
+<div class="rrr">3</div> -->
+<script>
+
+    // document.querySelectorAll(".rrr[0]").color='blue';
+
+</script>
+
+    <div>
+    <script>
+        document.title = 'title';
+        // 網頁的名稱，可以利用js變化網頁名?
+    </script>
+
+    <!-- <div id="root">idName取在重要的東西上，id我們讓他唯一</div>
+    <script>
+
+        document.querySelector("#root").style.color='red';
+
+    </script> -->
+
+    <!-- <div class="byClassName">單一個class</div>
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+    <div class="box">box4</div>
+    <div class="box">box5</div>
+    <script>
+        console.log("Length = "+ document.querySelectorAll('.box').length);
+    </script> -->
+
+    <hr>
+
+    <form>
+        <!-- checked為預設先選 -->
+        <label>男   <input type="radio" name="gender" value="1" checked></label>
+        <label>女   <input type="radio" name="gender" value="2">        </label>
+        <label>其他 <input type="radio" name="gender" value="3">        </label>
+    </form>
+    <hr>
+
+    <script>
+        // console.log(document.getElementById('root'));
+        // console.log(document.querySelector('#root'));
+
+        // console.log(document.getElementsByClassName('byClassName')[0]);
+        // console.log(document.querySelectorAll('.byClassName')[0]);
+        // console.log(document.querySelector('.byClassName'));
+
+        // console.log(document.getElementsByClassName('box'));
+        // console.log(document.querySelectorAll('.box'));
+        // console.log(document.getElementsByClassName('box')[2]);
+        // console.log(document.querySelectorAll('.box')[2]);
+        // console.log(document.getElementsByClassName('box').length);
+        // console.log(document.querySelectorAll('.box').length);
+        // 可傳回資料庫，沒打完
+ 
+        let aaaa = document.querySelector("input[name='gender']:checked").value;
+
+
+        for (var i = 0; i < document.getElementsByClassName('box').length; i++) {
+            console.log(document.getElementsByClassName('box')[i]);
+        }
+
+        for (var i = 0; i < document.querySelectorAll('.box').length; i++) {
+            console.log(document.querySelectorAll('.box')[i]);
+        }
+
+        console.log(document.getElementsByName('gender').length)
+        console.log(document.querySelectorAll("input[name='gender']").length)
+        console.log(document.querySelector("input[name='gender']:checked").value)
+
+    </script>
+</body>
+
+</html>

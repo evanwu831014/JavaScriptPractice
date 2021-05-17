@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表單</title>
+</head>
+
+<body>
+
+
+    <form>
+        First name:<br><input type="text" name="fname"><br>
+        Last name:<br><input type="text" name="lname"><br>
+    </form>
+    <hr>
+    <form>
+        帳號:<br><input type="text" name="idName" placeholder="請輸入帳號"><br>
+        密碼:<br><input type="password" name="psw" placeholder="請輸入密碼"><br>
+    </form>
+    <hr>
+    <form>
+        <input type="radio" name="gender" value="male">
+        Male<br>
+        <input type="radio" name="gender" value="female">
+        Female<br>
+        <input type="radio" name="gender" value="other">
+        Other
+    </form>
+
+    <hr>
+    <form>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label>
+    </form>
+    <hr>
+    <form>
+        <label>
+            <input type="radio" name="gender" value="male">Male
+        </label><br>
+        <label>
+            <input type="radio" name="gender" value="female">Female
+        </label><br>
+        <label>
+            <input type="radio" name="gender" value="other">Other
+        </label>
+    </form>
+    <hr>
+    <form>
+        <label>
+            <input type="radio" name="gender" value="male" checked>Male
+        </label><br>
+        <label>
+            <input type="radio" name="gender" value="female">Female
+        </label><br>
+        <label>
+            <input type="radio" name="gender" value="other">Other
+        </label>
+    </form>
+    <hr>
+    <form>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> I have a bike</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label>
+    </form>
+    <hr>
+    <form action="18_form2.html">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="f_name" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="l_name" value="Doe"><br><br>
+        <input type="submit" value="送出">
+    </form>
+    <hr>
+    <form action="18_form2.html" target="_blank">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="f_name" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="l_name" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+    </form> 
+
+</body>
+
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>函式</title>
+  <style>
+    h3 {
+      color: rgb(57, 59, 146);
+    }
+  </style>
+</head>
+
+
+<body>
+  <h3>內建函式</h3>
+
+  <h3>eval()</h3>
+  <script>
+    var str = "var a=10; var b=20";
+    eval(str);
+    document.write("a : ", a, "<br>");
+  </script>
+
+  <h3>isNaN()</h3>
+  <script>
+    document.write("isNaN(326) : ", isNaN(326), "<br>"); //false
+    document.write("isNaN('326') : ", isNaN("326"), "<br>"); //false
+    document.write("isNaN('abcd') : ", isNaN("abcd"), "<br>"); //true
+    document.write("isNaN('2015/12/12') : ", isNaN("2015/12/12"), "<br>"); //true
+  </script>
+
+  <hr />
+
+  <h3>自訂函式</h3>
+
+  <h3>没有參數, 也没有傳回值</h3>
+  <script>
+    function sayHello() {
+      document.write("Hello~~~", "<br>");
+    }
+
+    sayHello();
+  </script>
+
+  <h3>有參數, 没有傳回值</h3>
+  <script>
+    function sayHelloToSomeone(name) {
+      document.write(`Hello,${name},您好~~~`, "<br>");
+    }
+    sayHelloToSomeone("文文");
+  </script>
+
+  <h3>有參數, 有傳回值</h3>
+  <script>
+
+    function needyourname(name) {
+      return 'hi~' + name;
+    }
+    document.write(needyourname("文文"), "<br>");
+  </script>
+
+  <h3>有參數, 有傳回值2</h3>
+  <script>
+    function test(num) {
+      let all = num * 10;
+      return all;
+    }
+    document.write(test(5));
+  </script>
+
+  <h3>參數給預設值 : ES6</h3>
+  <script>
+    function showMsg(msg = "Hi~") {
+      document.write(msg, "<br>");
+    }
+    showMsg("早安~");
+    showMsg();
+  </script>
+
+  <h3>函式運算式</h3>
+  <script>
+    //具名函式
+    function say_hi() {
+      document.write("哈囉~<br>");
+    }
+    say_hi();
+
+    //函式運算式
+    let say_hi_hi = function () {
+      document.write("哈囉哈~<br>");
+    };
+    say_hi_hi();
+
+    //箭頭函式
+    let myFunction = () => {
+      document.write("換個方式哈囉~<br>");
+    };
+    myFunction();
+
+    //具名函式
+    function hi_u(name) {
+      document.write("哈囉~" + name + "<br>");
+    }
+    hi_u("Sherry");
+
+    //函式運算式
+    let hi_u_hi = function (name) {
+      document.write("哈囉~" + name + "<br>");
+    };
+    hi_u_hi("Sara");
+    //箭頭函式
+    let myU = (name) => {
+      document.write("哈囉~" + name + "<br>");
+    };
+    myU("Fan");
+  </script>
+  
+  <h3>函式運算式2</h3>
+  <script>
+    sayHellohi();
+    // Uncaught SyntaxError: Identifier 'sayHellohi' has already been declared
+    let sayHellohi = function () {
+      document.write("哈囉~<br>");
+    };
+    sayHellohi();
+
+    sayHellohihihi();
+    function sayHellohihihi() {
+      document.write("不要這樣哈囉吧~<br>");
+    };
+
+  </script>
+  <hr />
+  <h3>arguments</h3>
+  <script>
+    //具名函式
+    function sum(a, b, c) {
+      let total = 0;
+      for (var i = 0; i < arguments.length; i++) {
+        total += arguments[i];
+      }
+      return total;
+    }
+
+    document.write(`${sum(2, 4, 6, 8, 10, 12)}<br>`);
+    //函式運算式
+    let sum2 = function (a, b, c) {
+      let total = 0;
+      for (var i = 0; i < arguments.length; i++) {
+        total += arguments[i];
+      }
+      return total;
+    };
+
+    document.write(`${sum2(2, 4, 6, 8, 10, 12)}<br>`);
+
+      // ES6 的箭頭函式 (Arrow Function) 也沒有提供 arguments 物件
+  </script>
+
+  <hr />
+
+  <h3>callback function</h3>
+  <script>
+    function A_function(x) {
+      document.write("這是A<br>");
+      x();
+      //x=B_function; 
+      //x();=B_function();
+    };
+
+    function B_function() {
+      document.write("這是B<br>");
+    };
+
+    A_function(B_function);
+    // let A_function = (x) => {
+    //   document.write("這是A<br>");
+    //   x();
+    //   //x=B_function; 
+    //   //x();=B_function();
+    // };
+
+    // let B_function = () => {
+    //   document.write("這是B<br>");
+    // };
+
+    // A_function(B_function);
+
+    function total_2(num1, num2) {
+      document.write(num1 + num2 + '<br>');
+    }
+
+    function total_1(num1, num2) {
+      document.write(num1 * num2 + '<br>');
+    }
+
+    function c_function(num1, num2, callback) {
+      var a = num1;
+      var b = num2;
+      callback(a, b);
+    }
+
+    c_function(3, 5, total_1);
+    c_function(3, 5, total_2);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">add</button>
+    <div id="app"></div>
+
+    <!-- <button id="btn">add</button>
+    <button id="btnDelete">Delete</button>
+    <div id="app"></div> -->
+</body>
+<script>
+    function show() {
+        let app = document.querySelector('#app');
+        let newNode = document.createElement('div');
+        let newNodeT = document.createTextNode('我在這');
+
+        newNode.setAttribute('class', 'box')
+        newNode.appendChild(newNodeT)
+        app.appendChild(newNode);
+    }
+    function init() {
+        document.querySelector('#btn').addEventListener('click', show)
+    }
+
+    window.addEventListener('load', init);
+
+    ////////=========================================================
+
+
+    // function show() {
+    //     let app = document.querySelector('#app');
+    //     let newNode = `我在這`;
+    //     app.append(newNode)//以Node物件或DOMString(基本上是文字)的形式新增元素
+    //     //app.appendChild(newNode) // 接受一個Node物件//所以如果是文字他不接受喔！
+
+    // }
+    // function init() {
+    //     document.querySelector('#btn').addEventListener('click', show)
+    // }
+
+    // window.addEventListener('load', init);
+
+    ////////=========================================================
+
+
+    // let app = document.querySelector('#app');
+    // //移除'我在這'
+    // function bye() {
+    //     if (document.querySelectorAll('.box').length != 0) { //如果有'我在這'我才移除
+    //         app.removeChild(app.lastChild);//移除最後一個'我在這'
+    //     }
+    // }
+    // //新增'我在這'
+    // function show() {
+    //     let newNode = document.createElement('div');
+    //     let newNodeT = document.createTextNode('我在這');
+    //     newNode.setAttribute('class', 'box')
+    //     app.appendChild(newNode).appendChild(newNodeT);
+    // }
+    // function init() {
+    //     document.querySelector('#btn').addEventListener('click', show);//新增
+    //     document.querySelector('#btnDelete').addEventListener('click', bye);//移除
+    // }
+
+    // window.addEventListener('load', init);
+
+</script>
+
+
+</html>

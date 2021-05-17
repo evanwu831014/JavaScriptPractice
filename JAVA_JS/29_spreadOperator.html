@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sum(...data) {
+            let total = 0;
+            for (let i = 0; i < data.length; i++) {
+                total += data[i]
+            }
+            return total;
+        }
+        console.log(sum(10, 20));  //會印出30
+
+        let sum_a = (...data) => {
+            let total = 0;
+            for (let i = 0; i < data.length; i++) {
+                total += data[i]
+            }
+            return total;
+        }
+        console.log(sum_a(10, 20));  //會印出30
+
+
+        function sum2(a, b, ...data) {
+            console.log('a的值為: ' + a);//10
+            console.log('b的值為: ' + b);//20
+            console.log('data的值為: ' + data);//[30,40,50]
+        }
+        sum2(10, 20, 30, 40, 50);  //會印出30
+
+
+        let array1 = [1, 4, 9, 16, { c: 'tibame' }];
+        let array2 = [...array1];
+        console.log(array2)
+        console.log(array1 === array2);//false
+        array1[0] = 11111;
+        console.log(array1[0], array2[0]);//11111 1
+        console.log(array1[0] === array2[0]);//false
+        array1[4].c = "TIBAME";
+        console.log(array1[4], array2[4]);//{c: "TIBAME"} {c: "TIBAME"}
+        console.log(array1[4] === array2[4]);//true
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div class="box">第一個</div>
+<div class="box">第二個</div>
+<div class="box">第三個</div>
+<div class="box">第四個</div>
+</body>
+<script>
+let allbox = document.querySelectorAll('.box');
+allbox.forEach(element => element.addEventListener('click', function (e) {
+    console.log(e.target);
+    console.log(e.target.innerText);
+}));
+</script>
+
+</html>

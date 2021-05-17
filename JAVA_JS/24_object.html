@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>實字標示法建立物件</h3>
+    <script>
+        let obj = {
+            name: 'shang',
+            skill: ['html', 'css', 'js'],
+            say: function () {
+                return 'hi~';
+            }
+        }
+        document.write(obj.name + '<br>');
+        document.write(obj['name'] + '<br>');
+        document.write(obj.skill[0] + '<br>');
+        document.write(obj.say() + '<br>');
+
+    </script>
+    <hr>
+    <h3>建構子語法建立物件</h3>
+
+    <script>
+        // let obj2 = new Object();
+        let obj2 = {};
+        obj2.name = 'jack';
+        obj2.skill = ['vue', 'react', 'laravel'];
+        obj2.say = function () {
+            return 'hello';
+        };
+        document.write(obj2.name + '<br>');
+        document.write(obj2.skill[2] + '<br>');
+        document.write(obj2.say() + '<br>');
+
+        obj2.name = 'amy';//改掉囉！
+        document.write(obj2.name + '<br>');
+        console.log(obj2);
+
+    </script>
+
+    <hr>
+    <h3>建構子表示法建立物件</h3>
+    <script>
+        function obj3(name, skill, say) {
+            this.name = name;
+            this.skill = skill;
+            this.say = function () {
+                return say
+            };
+        }
+
+        let who = new obj3('sara', ['git', 'gulp', 'webpack'], 'QQ');
+        let who2 = new obj3('sara2', ['git2', 'gulp2', 'webpack2'], 'QQ2');
+
+        document.write(who.name + '<br>');
+        document.write(who2.name + '<br>');
+        document.write(who.skill[1] + '<br>');
+        document.write(who.say() + '<br>');
+    </script>
+
+    <hr>
+    <h3>for in 物件</h3>
+    <script>
+        var john = {
+            FirstName: "Chan",
+            LastName: "Tak-Wai",
+        };
+
+        for (var p in john) {
+            document.write(p + ":" + john[p] + "<br>");
+        }
+    </script>
+
+</body>
+
+
+</html>

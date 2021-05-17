@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" name="myfile" id="input_file" accept="image/*" />
+    <!-- accept 屬性來調整主要可接受的檔案類型 -->
+  </body>
+  <script>
+    function show_file() {
+      console.log(this.value); //看一下這檔案上傳位置檔名是什麼
+      var fileStr = this.value;
+      console.log(fileStr.lastIndexOf(".")); //找點在哪裡
+      var fileExt = fileStr.substr(fileStr.lastIndexOf(".") + 1);
+      console.log("fileExt : ", fileExt);
+    }
+    document.querySelector("#input_file").addEventListener("change", show_file);
+  </script>
+</html>

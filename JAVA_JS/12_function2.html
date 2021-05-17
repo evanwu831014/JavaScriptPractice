@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>變數的有效範圍</title>
+</head>
+
+<body>
+    <h3>變數的有效範圍</h3>
+    <script>
+        var a = 100;
+        document.write(window.a)
+
+    </script>
+    <h3>變數的有效範圍1</h3>
+    <script>
+        var a;
+        a = 10;
+        var b = 20;
+        c = 30;
+
+        function test(m, n) {
+            var d = 40;
+            a = 100;
+            d = 400;
+            e = m + n;
+        }
+        test(1, 2);
+
+        // document.write(`a:${a},b:${b},c:${c},d:${d},e:${e}`);
+        //Uncaught ReferenceError: d is not defined
+        document.write(`a:${a},b:${b},c:${c},e:${e}`);
+    </script>
+    <h3>變數的有效範圍2</h3>
+    <script>
+        var x = 1;
+
+        function hoisting_scope(y) {
+            document.write(x + "<br>");  
+
+            var x = 100;
+            return x + y;
+        };
+
+        document.write(hoisting_scope(50) + "<br>");   
+        document.write(x + "<br>");               
+    </script>
+    <h3>立即函式</h3>
+    <script>
+        let num = '123';
+        (function () {
+            let num2 = '456';
+            document.write(`${num}&${num2}`);//123&456
+        })();
+        document.write(`${num}&${num2}`);//Uncaught ReferenceError: num2 is not defined
+
+    </script>
+</body>
+
+</html>

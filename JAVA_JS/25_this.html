@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+
+<body>
+    <h3>全域範圍的函式</h3>
+    <script>
+        function windowSize() {
+            return this.innerWidth;
+        }
+        document.write(windowSize() + "<br>");
+    </script>
+
+    <h3>全域範圍的變數</h3>
+    <script>
+
+        var width = 100;
+        var shape = {
+            width: 500
+        };
+
+        function whichWidth() {
+            return this.width;
+        }
+
+        document.write(whichWidth() + "<br>");
+    </script>
+
+
+    <h3>物件的方法</h3>
+    <script>
+
+        var shape = {
+            width: 600,
+            getotherwidth: function () {
+                return this.width
+            }
+        };
+
+        document.write(shape.getotherwidth() + "<br>");
+    </script>
+
+    <h3>函式運算式轉化為方法</h3>
+    <script>
+        var width = 200;
+        var shape = {
+            width: 400,
+        };
+        var getotherwidth = function () {
+            return this.width
+        }
+        shape.getwidth = getotherwidth;
+        // 其實這段 shape.getwidth = getotherwidth;
+        // 會讓 shape 物件變成以下
+        // var shape = {
+        //     width: 400,
+        //     getwidth: function () {
+        //         return this.width
+        //     }
+        // };
+
+        document.write(shape.getwidth() + "<br>");
+    </script>
+
+    <h3>函式運算式轉化為狀況2</h3>
+    <script>
+        var width = 200;
+        var shape = {
+            width: 400,
+        };
+        var getotherwidth = function () {
+            return this.width
+        }
+
+        document.write(getotherwidth() + "<br>");
+    </script>
+
+
+
+
+    <h3>函式運算式轉化為狀況3(箭頭函式this有嚴格模式)</h3>
+    <script>
+        var width = 200;
+        var shape = {
+            width: 400,
+            getwidth: () => {
+                return this.width
+            }
+        };
+        document.write(shape.getwidth() + "<br>");
+    </script>
+
+
+
+    <h3>函式運算式轉化為狀況4(箭頭函式this有嚴格模式)</h3>
+    <script>
+        var width = 200;
+        var shape = {
+            width: 400,
+        };
+        var getotherwidth = () => {
+            return this.width
+        }
+        shape.getwidth = getotherwidth;
+        document.write(shape.getwidth() + "<br>");
+    </script>
+</body>
+
+</html>

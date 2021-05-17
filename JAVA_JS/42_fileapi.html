@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" name="myfile" id="input_file" />
+  </body>
+  <script>
+    document.querySelector("#input_file").addEventListener("focus", function () {
+        console.log("focus");
+    });
+
+    document.querySelector("#input_file").addEventListener("mousedown", function () {
+        console.log("mousedown");
+    });
+
+    document.querySelector("#input_file").addEventListener("mouseup", function () {
+        console.log("mouseup");
+    });
+
+    document.querySelector("#input_file").addEventListener("input", function () {
+        console.log("input");
+    });
+
+    document.querySelector("#input_file").addEventListener("change", function () {
+        console.log("change");
+    });
+
+    document.querySelector("#input_file").addEventListener("blur", function () {
+      console.log("blur");
+    });
+
+    document.querySelector("#input_file").addEventListener("click", function () {
+        console.log("click");
+    });
+  </script>
+</html>

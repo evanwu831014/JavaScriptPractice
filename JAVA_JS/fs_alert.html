@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --nav_bg: rgb(36, 36, 36);
+            --section_bg: rgb(245, 245, 245);
+            --main_c: rgb(85, 184, 201);
+            --main_c_btn_hover: rgb(76, 139, 150);
+            --admin_btn_c: rgb(168, 168, 168);
+            --error_c: rgb(219, 132, 132);
+            --main_font: 16px;
+        }
+    
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+            box-sizing: border-box;
+            /* outline: 1px solid green; */
+        }
+    
+        #fs_alert {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            display: none;
+            z-index: 999;
+        }
+    
+        .fs_alert_bg {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.671);
+            position: fixed;
+            top: 0;
+        }
+    
+        .fs_alert_show {
+            max-width: 450px;
+            min-width: 400px;
+    
+            background-color: white;
+            position: absolute;
+            top: 120px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 2;
+            border-radius: 8px;
+            text-align: center;
+        }
+    
+        .fs_alert_title {
+            font-size: 36px;
+            text-align: center;
+            margin: 35px;
+            font-weight: bold;
+        }
+    
+        .fs_alert_title_suc {
+            color: var(--main_c);
+        }
+    
+        .fs_alert_title_err {
+            color: var(--error_c);
+        }
+    
+        .fs_alert_txt,
+        .fs_alert_input {
+            width: 80%;
+            word-wrap: break-word;
+            font-size: 16px;
+            padding: 0 20px;
+            text-align: center;
+            margin: 0px auto 15px auto;
+        }
+    
+        #fs_alert_input {
+            display: none;
+            width: 100%;
+            height: 40px;
+        }
+    
+        #alert_ok {
+            margin: 20px auto 45px auto;
+        }
+    
+        #alert_error {
+            background-color: var(--error_c);
+            display: none;
+        }
+    
+    
+        .alert_error {
+            display: inline-block;
+        }
+    
+        #alert_error:hover {
+            background-color: rgb(202, 79, 79)
+        }
+    
+        .btn_s {
+            width: 100px;
+            border-radius: 8px;
+            font-size: var(--main_font);
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            background-color: var(--main_c);
+            margin: 10px;
+        }
+    
+        .btn_s:hover {
+            background-color: var(--main_c_btn_hover);
+        }
+    
+        [type='text'] {
+            font-size: var(--main_font);
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--admin_btn_c);
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="btn_s" id="alert_show">alert</div>
+    <div class="btn_s" id="alert_show2">alert</div>
+    <div id="fs_alert">
+        <div class="fs_alert_bg"></div>
+        <div class="fs_alert_show">
+        </div>
+    </div>
+</body>
+<script>
+    // alert模板
+    function fs_alert(fs_alert) {
+        this.show = function () {
+            let html = ` 
+        <div class="fs_alert_title"></div>
+        <div class="fs_alert_txt"></div>
+        <div class="fs_alert_input"><input type="text" name="fs_alert_input" id="fs_alert_input"></div>
+        <div class="btn_s " id="alert_ok"></div>
+        <div class="btn_s alert_error" id="alert_error"></div>`;
+            document.querySelector('.fs_alert_show').innerHTML = html;
+            document.querySelector('#fs_alert').style.display = 'block';
+            document.querySelector('.fs_alert_title').innerText = fs_alert.title;
+            document.querySelector('.fs_alert_txt').innerText = fs_alert.text;
+            document.querySelector('#alert_ok').innerText = fs_alert.btn_txt1;
+            if (fs_alert.suc_error === 'succee') {
+                document.querySelector('.fs_alert_title').classList.add('fs_alert_title_suc');
+            } else {
+                document.querySelector('.fs_alert_title').classList.add('fs_alert_title_err');
+            }
+            if (fs_alert.has_input) {
+                document.querySelector('#fs_alert_input').value = '';
+                document.querySelector('#fs_alert_input').style.display = 'block';
+            }
+            if (fs_alert.btn_suc_error) {
+                document.querySelector('#alert_ok').classList.add('alert_error');
+                document.querySelector('#alert_error').style.display = 'inline-block';
+                document.querySelector('#alert_error').innerText = fs_alert.btn_txt2;
+                document.querySelector('#alert_error').addEventListener('click', function () {
+                    document.querySelector('#fs_alert').style.display = 'none';
+                });
+            }
+        }
+
+    }
+
+
+   function init () {
+
+
+        document.querySelector('#alert_show').addEventListener('click', function () {
+            /////彈窗模板
+            let fs = new fs_alert({
+                suc_error: 'succee',//成功succee 失敗error
+                title: 'OK',//大字看要是什麼
+                text: '請輸入你的ID',//小文字說明
+                has_input: true,//需不需要輸入盒 要true 不要false
+                btn_suc_error: true,//需不需要取消的按鈕 要true 不要false
+                btn_txt1: '確定',//主要按鈕
+                btn_txt2: '取消'//取消按鈕
+            });
+
+            fs.show();
+            //要取值要多加這條～～
+            document.querySelector('#alert_ok').addEventListener('click', function () {
+                document.querySelector('#fs_alert').style.display = 'none';
+                let fs_alert_value = document.querySelector('#fs_alert_input').value;
+                console.log(fs_alert_value)
+            });
+
+        });
+
+
+        document.querySelector('#alert_show2').addEventListener('click', function () {
+            /////彈窗模板
+            let fs = new fs_alert({
+                suc_error: 'succee',//成功succee 失敗error
+                title: '成功',//大字看要是什麼
+                text: '順利地出現彈窗了',//小文字說明
+                has_input: false,//需不需要輸入盒 要true 不要false
+                btn_suc_error: false,//需不需要取消的按鈕 要true 不要false
+                btn_txt1: '確定',//主要按鈕
+                btn_txt2: ''//取消按鈕
+            });
+
+            fs.show();
+            //要取值要多加這條～～
+            document.querySelector('#alert_ok').addEventListener('click', function () {
+                document.querySelector('#fs_alert').style.display = 'none';
+                let fs_alert_value = document.querySelector('#fs_alert_input').value;
+                console.log(fs_alert_value)
+            });
+
+        })
+    }
+    window.addEventListener('load',init);
+
+</script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>宣告變數</h3>
+    <script>
+        //method 1
+        var product;
+        product = 200;
+        document.write("$"+product+"");
+        document.write(`   哈哈哈123   ${product}`);
+    </script>
+    <h3>取名變數時要注意的地方</h3>
+    <script>
+        var k;
+        k = 123;
+        var testString = "試試看console.log";
+        console.log(testString);
+        console.log("測試console.log");
+        console.log("這是" + testString);
+        console.log("這也是", testString);
+        console.log(`這個也是 ${testString}`);
+         
+        document.write(a,"<br>");
+        var a =10;  //Hoisting現象，後來才宣告的變數會自動在第一次使用前宣告，但此例使用當時仍然不會有值
+    
+    </script>
+    
+    <script>
+        var avg = 66;
+        if(avg >= 60){
+            let words = "好棒~"; //區塊作用域, 只能在此區塊中使用
+            document.write(words, "<br>");
+        }else{
+            let words = "加油~";
+            document.write("<br>", words, "<br>");
+        }
+            document.write(words, "<br>");  //在外層，找不到words，因為let只能在區域內存活
+//Uncaught ReferenceError: words is not defined
+    </script>
+</body>
+</html>

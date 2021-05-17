@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>陣列</title>
+    <style>
+        h3 {
+            color: rgb(57, 59, 146);
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid rgb(131, 125, 125);
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h3>Array</h3>
+    <script>
+        var arr = new Array();
+        arr[0] = "A";
+        arr[1] = "B";
+        arr[2] = "C";
+        document.write(arr, "<br>");
+
+        var arr2 = new Array(6);
+        arr2[0] = "D";
+        arr2[1] = "E";
+        arr2[2] = "F";
+        document.write(arr2, "<br>");
+
+        var arr3 = new Array("G", "H", "I");
+        document.write(arr3, "<br>");
+
+        var arr4 = ["J", "K", "L"];
+        document.write(arr4, "<br>");
+
+
+        //============小心
+        var arr5 = new Array(6);
+        document.write(arr5, "<br>");
+
+
+    </script>
+
+
+    <h3>arr.length for取值</h3>
+    <script>
+        var arr = [11, 66, 33, 55, 44, 22];
+        document.write("arr有幾個值 : ", arr.length, "<br>");
+        for (var i = 0; i < arr.length; i++) {
+            document.write(arr[i], "<br>");
+        }
+    </script>
+
+    <h3>for(i in arr)</h3>
+    <script>
+        var arr = new Array(11, 22, 33);
+        arr[7] = 100;
+
+        for (var i in arr) {
+            document.write(`${i} : ${arr[i]}<br> `);
+        }
+    </script>
+
+    <h3>for(data of arr)</h3>
+    <script>
+        var arr = new Array(11, 22, 33);
+        arr[7] = 100;
+        document.write("arr有幾個值 : ", arr.length, "<br>");
+
+        for (var data of arr) {
+            document.write(`${data}<br> `);
+        }
+    </script>
+
+
+    <h3>手動陣列轉字串</h3>
+    <script>
+        var arr = new Array(11, 22, 33, 44, 55, 66);
+        var str = "";
+        var length = arr.length;
+        for (var i = 0; i < length - 1; i++) {
+            str += arr[i] + ",";
+        }
+        str += arr[i];
+        document.write("轉成字串: ", str, "<br>");
+        document.write("型別檢查: ", typeof str, "<br>");
+    </script>
+
+
+    <h3>陣列轉字串: 使用toString()</h3>
+    <script>
+        var arr = new Array(11, 22, 33, 44, 55, 66);
+
+        document.write("轉成字串: ", arr.toString(), "<br>");
+        document.write("typeof(arr.toString()) : ", typeof arr.toString(), "<br>");
+
+      //arr是一個物件,要輸出時,會自動呼叫toString();
+    </script>
+
+    <h3>陣列轉字串: join()</h3>
+    <script>
+        var arr = new Array(11, 22, 33, 44, 55, 66);
+
+        document.write("轉成字串: ", arr.join("@@"), "<br>");
+        document.write("typeof(arr.join('@@')) : ", typeof arr.join("@@"), "<br>");
+
+    </script>
+
+    <h3>將資料放到陣列最後面: 自己做~ + push()</h3>
+    <script>
+        var arr = new Array(11, 22, 33);
+
+        arr[arr.length] = 100;
+        arr[arr.length] = 1000;
+        document.write(arr, "<br>");
+        arr.push(555);
+        document.write(arr, "<br>");
+    </script>
+
+    <h3>將資料放到陣列中的特定位置: 自己做~</h3>
+    <script>
+        //將data放到陣列中的索引值為index的位置
+        var arr = new Array(11, 22, 33, 44, 55, 66, 77);
+        var index = 5;
+        var data = "我在這";
+        for (var i = arr.length; i > index; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[index] = data;
+        document.write(arr, "<br>");
+    </script>
+
+    <h3>找到資料(33)在陣列中第一次出現的位置: 自己做~</h3>
+    <script>
+        //若找到, 請顯示其索引值，若找不到請顯示找不到的訊息
+        var arr = new Array(11, 22, 33, 44, 55, 66, 77);
+        var data = 33;
+        var length = arr.length;
+        for (var i = 0; i < length; i++) {
+            if (arr[i] == data) {
+                document.write(`${data}在陣列中的索引值為${i}<br>`);
+                break;
+            }
+        }
+        if (i == length) {
+            document.write("找不到", "<br>");
+        }
+    </script>
+
+    <h3>找到資料(33)在陣列中第一次出現的位置: 自己做~ (方法二)</h3>
+    <script>
+        //若找到, 請顯示其索引值，若找不到請顯示找不到的訊息
+        var arr = new Array(11, 22, 33, 44, 55, 66, 77);
+        var data = 33;
+        var length = arr.length;
+
+        var found = false;
+        for (var i = 0; i < length; i++) {
+            if (arr[i] == data) {
+                found = true;
+                document.write(`${data}在陣列中的索引值為${i}<br>`);
+                break;
+            }
+        }
+        if (found == false) {
+            document.write("找不到", "<br>");
+        }
+    </script>
+
+    <h3>找到資料(33)在陣列中第一次出現的位置: indexOf()</h3>
+    <script>
+        var arr = new Array(11, 22, 33, 44, 55, 66, 77, 22, 33);
+        var data = 33;
+        var index = arr.indexOf(data); //找不到會傳回 -1;
+        document.write(`${data}在陣列中的索引值為${index}<br>`);
+
+        index = arr.indexOf(data, 5); //找不到會傳回 -1;
+        document.write(`${data}在陣列中的索引值為${index}<br>`);
+
+        data = 333;
+        index = arr.indexOf(data); //找不到會傳回 -1;
+        document.write(`${data}在陣列中的索引值為${index}<br>`);
+    </script>
+
+    <h3>push(), pop()</h3>
+    <script>
+        var arr = new Array(11, 22, 33);
+        arr.push(1000);
+        arr.push(2000);
+        document.write(arr, "<br>");
+
+        var data = arr.pop();
+        document.write(arr, "<br>");
+        document.write(`pop出資料${data}`, "<br>");
+    </script>
+
+    <h3>unshift(), shift()</h3>
+    <script>
+        var arr = new Array(11, 22, 33);
+        arr.unshift(1000);
+        arr.unshift(2000);
+        document.write(arr, "<br>"); //2000,1000,11,22,33
+
+        var data = arr.shift();
+        document.write(arr, "<br>"); //1000,11,22,33
+        document.write(`shift出資料${data}`, "<br>");
+    </script>
+
+    <h3>slice(start, end)</h3>
+    <script>
+        var arr = new Array(11, 22, 33, 44, 55, 66, 77);
+        var arr2 = arr.slice(2, 5);
+
+        document.write("arr : ", arr, "<br>");
+        document.write("arr2 : ", arr2, "<br>");
+    </script>
+
+    <h3>splice(start, length, ele1)</h3>
+    <script>
+        var arr = new Array(11, 22, 33, 44, 55, 66, 77, 88, 99);
+        var arr2 = arr.splice(2, 5, 1000, 2000); //33,44,55,66,77
+
+        document.write("arr : ", arr, "<br>"); //11,22,1000,2000,88,99
+        document.write("arr2 : ", arr2, "<br>");
+    </script>
+
+    <h3>使用splice() 將資料插入到陣列中的特定位置</h3>
+    <script>
+        var arr = new Array(11, 22, 33, 44, 55, 66, 77, 88, 99);
+        var index = 3;
+        var data = 1000;
+        arr.splice(index, 0, data);
+        document.write("arr : ", arr, "<br>"); //
+    </script>
+
+    <h3>使用splice() 將資料自陣列中的特定位置移除該資料</h3>
+    <script>
+        var arr = new Array(11, 22, 33, 44, 55, 66, 77, 88, 99);
+        var index = 3;
+        var arr2 = arr.splice(index, 1);
+
+        document.write("arr : ", arr, "<br>"); //
+        document.write("刪除的資料是 : ", arr2[0], "<br>");
+    </script>
+
+    <h3>reverse()</h3>
+    <script>
+        var arr = new Array(11, 22, 88, 44, 55, 66, 77, 33, 99);
+        document.write("arr : ", arr, "<br>");
+        arr.reverse();
+        document.write("arr : ", arr, "<br>");
+    </script>
+
+    <h3>concat()</h3>
+    <script>
+        var arr = new Array(11, 22, 33);
+        var arr2 = new Array(1, 2, 3);
+        var arr3 = arr2.concat(arr);
+        document.write("arr : ", arr, "<br>");
+        document.write("arr2 : ", arr2, "<br>");
+        document.write("arr3 : ", arr3, "<br>");
+    </script>
+
+    <h3>使用sort</h3>
+    <script>
+        var arr = [40, 20, 50, 70, 30, 80, 7];
+        arr.sort();
+        document.write(arr, "<br>");
+    </script>
+
+    <h3>sort(), compareFunction 由小到大</h3>
+    <script>
+        function myCompareAsc(a, b) {
+            //20, 40
+            return a - b; //20-40-->20 --> 20,40 (由小到大)
+        }
+
+        var arr = [40, 20, 50, 70, 30, 80, 7];
+        arr.sort(myCompareAsc);
+        document.write(arr, "<br>");
+
+        // arr.sort(function myCompareAsc(a, b) {
+        //     if (a > b) {
+        //         return 1; // 正數時，後面的數放在前面
+        //     } else {
+        //         return -1 // 負數時，前面的數放在前面
+        //     }
+        // });
+    </script>
+
+    <h3>sort(), compareFunction 由大到小</h3>
+    <script>
+        function myCompareDesc(a, b) {
+            return b - a;
+        }
+
+        var arr = [40, 20, 50, 70, 30, 80, 7];
+        arr.sort(myCompareDesc);
+        document.write(arr, "<br>");
+
+        // arr.sort(function myCompareAsc(a, b) {
+        // if (a < b) {
+        //     return 1; // 正數時，後面的數放在前面
+        // } else {
+        //     return -1 // 負數時，前面的數放在前面
+        // }
+        // });
+    </script>
+    <h3>請問陣列長度1</h3>
+    <script>
+        var arr = [];
+        arr.push(1);
+        arr.push(2);
+        document.write(arr.length);
+    </script>
+    Í
+    <h3>請問陣列長度2</h3>
+    <script>
+        var arr = new Array(6);
+        arr.push(1);
+        arr.push(2);
+        document.write(arr.length);
+    </script>
+</body>
+
+</html>

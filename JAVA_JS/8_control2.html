@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>流程控制</title>
+  <style>
+    h3 {
+      color: rgb(57, 59, 146);
+    }
+
+    table,
+    tr,
+    td {
+      border: 1px solid rgb(131, 125, 125);
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <h3>for</h3>
+  <script>
+    for (var i = 1; i <= 3; i++) {
+      document.write("I love JavaScript", "<br>");
+    }
+  </script>
+
+
+  <h3>for 印出數字1~10</h3>
+  <script>
+    for (var i = 1; i <= 10; i++) {
+      document.write(i, "<br>");
+    }
+    //比較
+    for (var i = 1; i <= 10; i++) {
+      document.write(i, "<br>");
+    }
+    document.write(i, "<br>");
+  </script>
+
+
+  <h3>印出1,2、3,....,9,10</h3>
+  <script>
+    for (var i = 1; i <= 10; i++) {
+      if (i < 10) {
+        document.write(i, ",");
+      } else {
+        document.write(i);
+      }
+    }
+  </script>
+
+  <h3>印出1,2、3,....,9,10(方法二)</h3>
+  <script>
+    for (var i = 1; i <= 9; i++) {
+      document.write(i, ",");
+    }
+    document.write(i, "<br>");    //i:10
+  </script>
+
+
+
+  <h3>計算1加2加3加到...50的總和</h3>
+  <script>
+    var total = 0;
+    for (var i = 1; i <= 50; i++) {
+      total += i;
+      // total = total + i;
+    }
+    document.write("總和 : ", total, "<br>");
+  </script>
+
+  <h3>印出1到50間3的倍數及計算其總和</h3>
+  <script>
+    var total = 0;
+    for (var i = 1; i <= 50; i++) {
+      if (i % 3 == 0) {
+        document.write(i, "<br>");
+        total += i;
+      }
+    }
+    document.write("總和 : ", total, "<br>");
+  </script>
+
+  <h3>印出1到50間3的倍數及計算其總和(方法二)</h3>
+  <script>
+    var total = 0;
+    for (var i = 3; i <= 50; i += 3) {
+      document.write(i, "<br>");
+      total += i;
+    }
+    document.write("總和 : ", total, "<br>");
+  </script>
+
+  <h3>設一個數字，求1到此數之總和，及其奇數和與偶數和</h3>
+  <script>
+    var num = 10;
+    var odd = 0;
+    var even = 0;
+    var total = 0;
+    for (var i = 0; i <= num; i++) {
+      i % 2 === 0 ? (even += i) : (odd += i);
+      total += i;
+    }
+    document.write(`數字: ${num} | 總和: ${total} | 奇數和: ${odd} | 偶數和: ${even}<br>`);
+  </script>
+
+  <h3>我們要來抽獎十次，獎金落在1000元以內，再把獎金加總</h3>
+  <script>
+    var total = 0;
+    for (var i = 0; i < 10; i++) {
+      var money = Math.floor(Math.random() * 1000 + 1);
+      total += money;
+      document.write(`第${i + 1}次: ${money} <br>`);
+    }
+    document.write(`總獎金: ${total} 元 <br>`);
+  </script>
+
+  <h3>巢狀迴圈</h3>
+  <script>
+    for (var i = 1; i <= 3; i++) {
+      document.write("第一層", i, "<br>");
+      for (var k = 1; k <= 3; k++) {
+        document.write("&nbsp&nbsp&nbsp第二層", k, "<br>");
+      }
+    }
+
+    //表情符號的表格
+    document.write("<table>");
+    for (var i = 1; i <= 3; i++) {
+      document.write("<tr>");
+      for (var k = 1; k <= 3; k++) {
+        document.write("<td>", "ヾ(・ω・ｏ)", "</td>");
+      }
+      document.write("</tr>");
+    }
+    document.write("</table>");
+
+
+
+    document.write("//////<br>");
+
+
+    //九九乘法表~
+   
+
+
+
+    document.write("//////<br>");
+
+    //星星
+    for (var i = 0; i <= 5; i++) {
+      for (var j = 0; j <= i; j++) {
+        document.write("*");
+      }
+      document.write("<br>");
+    }
+    document.write("//////<br>");
+
+    for (var i = 0; i <= 5; i++) {
+      for (var j = 5; j >= i; j--) {
+        document.write("*");
+      }
+      document.write("<br/>");
+    }
+    document.write("//////<br>");
+  </script>
+
+  <hr>
+
+  <h3>while()</h3>
+  <script>
+    var i = 1;//初始值
+    while (i <= 3) {//條件
+      document.write("I love JavaScript", "<br>");
+      i++;//結束時變動
+    }
+  </script>
+
+  <h3>印出1、2、3、....、9、10</h3>
+  <script>
+    var i = 1;
+    while (i <= 9) {
+      document.write(i, "、");
+      i++;
+    }
+    document.write(i, "<br>");
+  </script>
+
+  <h3>計算1加2加3加到...50的總和</h3>
+  <script>
+    var total = 0;
+    var i = 1;
+    while (i <= 50) {
+      total += i;
+      i++;
+    }
+    document.write("總和 : ", total, "<br>");
+  </script>
+
+  <h3>印出1到50間3的倍數及計算其總和</h3>
+  <script>
+    var total = 0;
+    var i = 3;
+    while (i <= 50) {
+      document.write(i, "<br>");
+      total = total + i;
+      i += 3;
+    }
+    document.write("總和 : ", total, "<br>");
+  </script>
+
+  <hr />
+
+  <h3>do ...while()</h3>
+  <script>
+    var i = 1;
+    do {
+      document.write("I love JavaScript", "<br>");
+      i++;
+    } while (i <= 3);
+  </script>
+
+  <h3>印出1、2、3、....、9、10</h3>
+  <script>
+    var i = 1;
+    do {
+      document.write(i, "、");
+      i++;
+    } while (i <= 9);
+    document.write(i, "<br>");
+  </script>
+
+  <h3>計算1加2加3加到...50的總和</h3>
+  <script>
+    var total = 0;
+    var i = 1;
+    do {
+      total = total + i;
+      i++;
+    } while (i <= 50);
+    document.write("總和 : ", total, "<br>"); //1275
+  </script>
+
+  <h3>印出1到50間3的倍數及計算其總和</h3>
+  <script>
+    var total = 0;
+    var i = 3;
+    do {
+      document.write(i, "<br>");
+      total = total + i;
+      i = i + 3;
+    } while (i <= 50);
+    document.write("總和 : ", total, "<br>");
+  </script>
+
+  <h3>印出1到50間3的倍數及計算其總和(方法二)</h3>
+  <script>
+    var total = 0;
+    var i = 1; //3
+    do {
+      if (i % 3 == 0) {
+        document.write(i, "<br>");
+        total = total + i;
+      }
+
+      i++;
+    } while (i <= 50);
+    document.write("總和 : ", total, "<br>");
+  </script>
+  <h3>do...while摸彩金</h3>
+  <script>
+
+    // 摸彩金 : 有11顆彩球, 彩球面額為0-10之間, 若摸到的彩球不為0,
+    // 則可繼續摸彩,若摸到的彩球為0,則停止摸彩,並計算其摸彩次數及彩金總金額(單位:佰元)
+   
+  </script>
+  <hr>
+  <h3>break & continue 使用</h3>
+  <script>
+    for (var i = 0; i < 10; i++) {
+      if (i == 4) {
+        // break;
+        continue;
+      }
+      document.write(i);
+    }
+  </script>
+</body>
+
+
+</html>

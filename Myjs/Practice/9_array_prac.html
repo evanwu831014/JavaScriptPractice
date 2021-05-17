@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px solid rebeccapurple;
+            border-collapse: collapse;
+            padding: 5px 8px;
+            text-align: center;
+        }
+        tr:first-child {
+            color: white;
+            background-color: rebeccapurple;
+        }
+
+
+    </style>
+
+    <!-- <style>
+        table, tr, td {
+            border: 1px solid rebeccapurple;
+            border-collapse: collapse;
+            padding: 5px 8px;
+            text-align: center;
+            /* 線都是紫色 */
+        }
+        tr:first-child {
+            color: white;
+            background-color: rebeccapurple;
+            /* 第一列都是紫色 */
+        }
+    </style> -->
+
+</head>
+<body>    
+
+
+    
+    <script>        
+
+        var data = new Array(4);
+
+        data[0]=['學號','姓名','電話','地址'];    
+        data[1]=["94951001","黃一丁","0911000333","台北"]; 
+        data[2]=["94951002","劉二毛","0922999887","桃園"];
+        data[3]=["94951003","張大化","0922555779","台南"];
+
+        document.write("<table>");
+
+        for(var i=0; i<4;i++){
+            document.write("<tr class = 'aaa'>");
+            for(var j=0; j<4; j++){
+                document.write("<td>",data[i][j],"</td>");   
+            }
+            document.write("</tr>");
+        }
+        document.write("<table>");  
+
+    //         document.write("<table>");
+    // for (var i = 0; i < arr2.length; i++) {
+    //     if( i ==0){
+    //         document.write("<tr class='aaa'>");
+    //     }else{
+    //         document.write("<tr>")
+    //     }
+    //     for (var j = 0; j < arr2[i].length; j++) {
+    //         document.write("<td>", arr2[i][j], "</td>");
+    //     } 
+    //     document.write("</tr>");
+    // }
+    // document.write("</table>");
+    </script>
+
+</body>
+</html>

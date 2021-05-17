@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box_color_c {
+            width: 200px;
+            height: 200px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- 第一個 -->
+    <div class="box_color_c"></div>
+    <button id="btn" onclick="document.querySelector('.box_color_c').style.backgroundColor = 'gray';
+    ">click</button>
+
+    <!-- 第二個 -->
+    <!-- <div class="box_color_c"></div>
+    <button id="btn" onclick='show_c()'>click</button> -->
+
+    <!-- 第三個 -->
+    <!-- <div class="box_color_c"></div>
+    <button id="btn">click</button> -->
+</body>
+
+<script>
+    // 第二個的JS
+    // function show_c() {
+    //     let color = `rgb(${Math.floor(Math.random() * 256)},
+    //                ${Math.floor(Math.random() * 256)},
+    //                ${Math.floor(Math.random() * 256)})`;
+
+    //     document.querySelector('.box_color_c').style.backgroundColor = color;
+    // }
+    //==================================================
+    //第三個
+    // function show_c() {
+    //     let color = `rgb(${Math.floor(Math.random() * 256)},
+    //                    ${Math.floor(Math.random() * 256)},
+    //                    ${Math.floor(Math.random() * 256)})`;
+
+    //     document.querySelector('.box_color_c').style.backgroundColor = color;
+    // }
+    // document.querySelector('#btn').onclick = show_c;
+
+    //==================================================
+    //第三個
+    // function show_c() {
+    //     let color = `rgb(${Math.floor(Math.random() * 256)},
+    //                     ${Math.floor(Math.random() * 256)},
+    //                     ${Math.floor(Math.random() * 256)})`;
+
+    //     document.querySelector('.box_color_c').style.backgroundColor = color;
+    // }
+
+    // document.querySelector('#btn').addEventListener('click', show_c);
+
+    //==================================================
+    //第三個
+    // document.querySelector('#btn').addEventListener('click', function(){
+    // let color = `rgb(${Math.floor(Math.random() * 256)},
+    //                 ${Math.floor(Math.random() * 256)},
+    //                 ${Math.floor(Math.random() * 256)})`;
+
+    // document.querySelector('.box_color_c').style.backgroundColor = color;
+    // });
+</script>
+
+</html>

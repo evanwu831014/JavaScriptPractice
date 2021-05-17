@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>運算式系列</title>
+    <style>
+        h3 {
+            color: rgb(57, 59, 146);
+        }
+    </style>
+</head>
+
+<body>
+    <h3>算術運算式</h3>
+    <script>
+
+        var x;
+        var y = 100;
+        x = y + 2;
+        document.write(x + "<br>"); //102
+        x = y - 2;
+        document.write(x + "<br>"); //98
+        x = y * 2;
+        document.write(x + "<br>"); //200
+        x = y / 2;
+        document.write(x + "<br>"); //50
+        x = y % 2;
+        document.write(x + "<br>"); //0
+        x = y % 3;
+        document.write(x + "<br>"); //1
+
+
+
+        var x;
+        var y = 100;
+        x = y++;
+        document.write("x:" + x + "<br>"); //100
+        document.write("y:" + y + "<br>"); //101
+
+
+        var x;
+        var y = 100;
+        x = y--;
+        document.write("x:" + x + "<br>"); //100
+        document.write("y:" + y + "<br>"); //99
+
+
+        var x;
+        var y = 100;
+        x = ++y;
+        document.write("x:" + x + "<br>"); //101 : 先加
+        document.write("y:" + y + "<br>"); //101
+
+
+        var x;
+        var y = 100;
+        x = --y;
+        document.write("x:" + x + "<br>"); //99 : 先減
+        document.write("y:" + y + "<br>"); //99
+
+    </script>
+
+
+    <h3>算術運算式 ++在前</h3>
+    <script>
+        var x = 10;  //x : 10
+        var y = ++x + 5; //x : 11 , 11+5
+        document.write("x : ", x, "<br>");//11
+        document.write("y : ", y, "<br>"); //16
+    </script>
+
+
+    <h3>算術運算式 ++在後</h3>
+    <script>
+        var x = 10;  //x : 10
+        var y = x++ + 5; //x : 11 , 10+5
+        document.write("x : ", x, "<br>");//11
+        document.write("y : ", y, "<br>");//15
+    </script>
+
+
+    <h3>算術運算式 ++在前</h3>
+    <script>
+        var a = 10;
+        var b = ++a + ++a;
+        document.write("a : ", a, "<br>"); //12
+        document.write("b : ", b, "<br>"); //23
+    </script>
+
+
+    <h3>算術運算式 ++在後</h3>
+    <script>
+        var a = 10;
+        var b = a++ + a++;
+        document.write("a : ", a, "<br>"); //12
+        document.write("b : ", b, "<br>"); //21
+    </script>
+    <hr>
+
+
+    <h3>比較運算式</h3>
+    <script>
+        document.write('5 > 10 ', 5 > 10, "<br>");              //false
+        document.write('5 >= 10 ', 5 >= 10, "<br>");            //false
+        document.write('5 < 10 ', 5 < 10, "<br>");              //true
+        document.write('5 <= 10 ', 5 <= 10, "<br>");            //true
+        document.write('5 == 10 ', 5 == 10, "<br>");            //false
+        document.write('5 == "5" ', 5 == "5", "<br>");          //true
+        document.write('5 === "5" ', 5 === "5", "<br>");        //false
+        document.write('0 == false ', 0 == false, "<br>");      //true
+        document.write('0 === false ', 0 === false, "<br>");    //false
+        document.write('5 != 10 ', 5 != 10, "<br>");            //true
+        document.write('5 != "5" ', 5 != "5", "<br>");          //false
+        document.write('5 !== "5" ', 5 !== "5", "<br>");        //true
+    </script>
+    <hr>
+
+
+    <h3>邏輯運算式</h3>
+    <script>
+        var x = 20;
+        var y = 30;
+        document.write(x < 30 && y > 1, "<br>");    //true
+        document.write(x < 30 && y < 1, "<br>");    //false
+        document.write(x > 5 || y > 100, "<br>");   //true
+        document.write(!(x == y), "<br>");          //true
+    </script>
+    <hr>
+
+    <h3>指定運算式</h3>
+    <script>
+        //其實就是等號運算子（=）來進行「指定」的工作
+        //當計算完畢等號右邊的值後
+        //接著將結果放進等號左邊的變數，這個放進去的動作就是指定。
+        var x = 20;
+        var y = x;
+        document.write(y, "<br>"); //20
+        var x = 20;
+        var y = 30;
+        y += x;
+        // y=y+x;
+        document.write(y, "<br>"); //50
+        var x = 20;
+        var y = 30;
+        y -= x;
+        document.write(y, "<br>"); //10
+        var x = 20;
+        var y = 30;
+        y *= x;
+        document.write(y, "<br>"); //600
+        var x = 600;
+        var y = 30;
+        x /= y;
+        document.write(x, "<br>"); //20
+    </script>
+    
+    <hr>
+
+    <h3>三元運算式</h3>
+    <script>
+        var avg = 66;
+        document.write(avg >= 60 ? "通過" : "再努力", '<br>'); //通過
+    </script>
+    <script>
+        var avg = 50;
+        document.write(avg >= 60 ? "通過" : avg >= 50 ? "差十分" : "差得有點多"); //差十分
+    </script>
+
+</body>
+
+</html>

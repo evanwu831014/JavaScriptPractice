@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const array1 = ['a', 'b', { c: 'tibame' }];
+
+        array1.forEach(function (element) {
+            console.log(element)
+        });
+
+        array1.forEach(function (element, index) {
+            console.log(element, index)
+        });
+
+        array1.forEach(function (element, index, arr) {
+            console.log(element, index, arr)
+        });
+
+        array1.forEach(element => console.log(element));
+        array1.forEach((element, index) => console.log(element, index));
+        array1.forEach((element, index, arr) => console.log(element, index, arr));
+
+
+
+        const array2 = [];
+        array1.forEach(function (element) {
+            // console.log(element)
+            array2.push(element)
+        });
+
+        console.log(array1 === array2);//false
+        // array1 與 array2 已經是兩個不同的物件
+        array1[0] = "ddd";
+        console.log(array1[0], array2[0]);//ddd a
+        console.log(array1[0] === array2[0]);//false
+
+        array1[2].c = "TIBAME"
+        console.log(array1[2], array2[2]);//{c: "TIBAME"} {c: "TIBAME"}
+        console.log(array1[2] === array2[2]);//true
+
+
+
+
+    </script>
+</body>
+
+</html>

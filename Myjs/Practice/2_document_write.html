@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <script>
+        document.write("直接寫文字就OK<br>");
+        var testString = "Have a good time.😎"; // 宣告變數VAR
+        document.write(testString, "<br>");
+        document.write("Welcome1" + testString + "<br>");//使用+
+        document.write("Welcome2", testString, "<br>");//使用,
+        document.write(`Welcome3${testString}<br>`);//使用$配合變數
+        //很少使用
+        var x = null;  var y = 15;
+        document.write(typeof x);
+        document.write(x);
+        x= 'ssssss';
+        document.write(x+y,"<br>");
+        x=10;  
+        document.write(x+y);
+
+    </script>
+
+</body>
+</html>

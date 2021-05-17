@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>二微陣列</title>
+</head>
+<style>
+  h3 {
+    color: rgb(57, 59, 146);
+  }
+
+  table,
+  tr,
+  td {
+    border: 1px solid rgb(131, 125, 125);
+    border-collapse: collapse;
+  }
+</style>
+
+<body>
+  <h3>2維陣列初步認識</h3>
+  <script>
+    var arr = [[1, 2, 3], [11, 12, 13], [21, 22, 23]];
+    document.write(arr[0], '<br>');
+    document.write(arr[1], '<br>');
+    document.write(arr[2], '<br>');
+    document.write(arr[0][0], '<br>');
+    document.write(arr[1][0], '<br>');
+    document.write(arr[2][0], '<br>');
+  </script>
+
+<h3>2維陣列初步與for搭配</h3>
+
+  <script>
+    var arr = [
+      [1, 2, 3, 4],
+      [11, 12, 13, 14],
+      [21, 22, 23, 24],
+    ];
+
+    document.write("<table>");
+    for (var i = 0; i < 3; i++) {
+      document.write("<tr>");
+      for (j = 0; j < 4; j++) {
+        document.write("<td>", arr[i][j], "</td>");
+      }
+      document.write("</tr>");
+    }
+    document.write("</table>");
+  </script>
+
+
+ 
+</body>
+
+</html>

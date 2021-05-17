@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #app {
+        height: 400px;
+        overflow-y: auto;
+        border: 1px solid grey;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+
+  <body>
+    <input type="file" id="theFile" />
+    <h2>Content here...</h2>
+    <div id="app"></div>
+  </body>
+  <script>
+    function doFirst() {
+      //先跟HTML畫面產生關聯，再建事件聆聽功能
+      document.querySelector("#theFile").addEventListener("change", fileChange);
+    }
+    function fileChange() {
+      let extAllowed = ["html", "js", "css"];
+
+      let fileStr = this.value;
+      let fileExt = fileStr.substr(fileStr.lastIndexOf(".") + 1);
+
+      if (extAllowed.indexOf(fileExt) === -1) {
+        document.querySelector("#app").innerText = "檔案格式不對";
+      } else {
+        let file = document.querySelector("#theFile").files[0];
+        //   console.log(file)
+        let readFile = new FileReader();
+        //Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容
+        // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+        readFile.readAsText(file); //readAsText是new FileReader()的一種方法，可以讀取文件內容
+        readFile.addEventListener("load", function () {
+          //讀取完成時觸發
+          document.querySelector("#app").innerText = this.result; //該result屬性將文件內容包含為文本字符串
+        });
+      }
+    }
+    window.addEventListener("load", doFirst);
+  </script>
+</html>

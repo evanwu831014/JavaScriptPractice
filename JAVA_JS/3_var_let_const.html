@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>var / let / const</title>
+</head>
+<style>
+    h3 {
+        color: rgb(57, 59, 146);
+    }
+</style>
+
+<body>
+    <h3>宣告變數</h3>
+    <script>
+        // 方法一
+        // var product;
+        // product = 200;
+        // document.write('$'+product);
+        // 方法二(簡化一點)
+        var product = 200;
+        document.write('$' + product+ "<br>");
+
+        var total = 1000;
+        document.write("$" + total + "<br>");
+    </script>
+    <hr>
+
+    <h3>取變數名字要注意的地方</h3>
+    <script>
+        // var 1pp =20;//Uncaught SyntaxError: Invalid or unexpected token
+        var pp1 = 20;//ok
+        var apple = "小寫蘋果";
+        var APPLE = "大寫蘋果";
+        document.write("pp1:", pp1, "<br>"); //小寫蘋果
+        document.write("apple:", apple, "<br>"); //小寫蘋果
+        document.write("APPLE:", APPLE, "<br>"); //大寫蘋果
+    </script>
+    <hr>
+    
+    <h3>console.log</h3>
+    <script>
+        var testString = "試試看console.log";
+        console.log(testString);
+        console.log("測試console.log");
+        console.log("這是" + testString);
+        console.log("這也是", testString);
+        console.log(`這個也是 ${testString}`);
+    </script>
+
+
+
+    <h3>var 有hoist</h3>
+    <script>
+        //已經把宣告的動作提昇到這裡
+        document.write(a, "<br>"); //undefined
+        //注意一下，當我們變數尚未給值的時候啊，這的變數會是”未定義“的值
+        var a = 10; //給值的動作在此才做;
+        document.write(a, "<br>"); //10
+    </script>
+
+
+    <h3>var 可以重覆宣告</h3>
+    <script>
+        var a = 100;
+        var a = 500;
+        document.write(a, "<br>");
+    </script>
+
+
+
+
+    <h3>var 没有區塊作用域</h3>
+    <script>
+        document.write(word, "<br>");
+        var avg = 66;
+        if (avg >= 60) {
+            var word = "好棒~"; //全域
+        } else {
+            var word = "加油~";
+        }
+        document.write(word, "<br>");
+    </script>
+    <hr />
+
+
+    <h3>let 没有hoist</h3>
+    <script>
+        document.write(aa, "<br>"); //此行會error
+        //Uncaught ReferenceError: Cannot access 'aa' before initialization
+        let aa = 10;
+    </script>
+
+
+
+    <h3>let 不可以重覆宣告</h3>
+    <script>
+        let sgo = 11;
+        //let sgo = 12; //Uncaught SyntaxError: Identifier 'sgo' has already been declared
+        document.write(sgo, "<br>");
+
+    </script>
+
+
+
+
+
+    <h3>let 有區塊作用域</h3>
+    <script>
+        var avg = 66;
+        if (avg >= 60) {
+            let words = "好棒~"; //區塊作用域, 只能在此區塊中使用
+            document.write(words, "<br>");
+        } else {
+            let words = "加油~";
+            document.write(words, "<br>");
+        }
+        document.write(words, "<br>");
+        //Uncaught ReferenceError: words is not defined
+    </script>
+    <hr>
+
+
+
+
+
+    <h3>const</h3>
+    <script>
+        //const a;//Uncaught SyntaxError: Missing initializer in const declaration
+        
+        const PI = 3.14; //不可變之常數
+        // const PI=3;
+        // Uncaught SyntaxError: Identifier 'PI' has already been declared
+        // PI=3;
+        // Uncaught TypeError: Assignment to constant variable.
+        // 錯誤，不能對常數重新賦值
+
+        document.write(PI, "<br>");
+
+
+
+        const obj = {
+            x: 20,
+            y: 50,
+        };
+        obj.x = 50;
+        document.write(obj.x, "<br>");
+    </script>
+    <hr>
+
+
+
+
+
+</body>
+
+</html>

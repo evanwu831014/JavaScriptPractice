@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傳值與傳址</title>
+</head>
+
+<body>
+    <h3>傳值</h3>
+    <script>
+        var a = 10;
+        var b = 10;
+
+        document.write('a === b:', a === b, '<br>');  // true
+
+        var c = a;
+        c++;
+
+        document.write("a:", a, '<br>');   // 10
+        document.write("c;", c, '<br>');   // 11
+    </script>
+
+
+    <h3>傳址</h3>
+    <script>
+        var obj1 = { v1: 1 };
+        var obj2 = { v1: 1 };
+
+        document.write("obj1 === obj2:", obj1 === obj2, '<br>');  // false
+
+
+        var obj1 = { v1: 1 };
+        var obj2 = obj1;
+
+        obj1.v1 = 0;
+        document.write(obj2.v1, '<br>');  // 0
+
+        obj2.v2 = 2;
+        document.write(obj1.v2, '<br>');  // 2
+
+        //改動誰就會跟著給動呢~~~
+
+        //修改任意物件屬性時，另一邊的屬性也會更動
+        //這是因為兩個變數指向相同的記憶體位置
+        //並沒有新的物件被複製出
+
+        document.write(obj1 === obj2, '<br>');  // true
+    </script>
+
+</body>
+
+</html>
