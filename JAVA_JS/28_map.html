@@ -24,10 +24,13 @@
         const map1 = array1.map(x => x);
         console.log(map1);
         console.log(map1 === array1);//false
+        console.log("map1[0] = 11111");
+
         map1[0] = 11111;
         console.log(map1[0], array1[0]);//11111 1
         console.log(map1[0] === array1[0]);//false
-
+        console.log("map1[4].c=TIBAME");
+        
         map1[4].c ="TIBAME";
         console.log(map1[4], array1[4]);//{c: "TIBAME"} {c: "TIBAME"}
         console.log(map1[4] === array1[4]);//true
